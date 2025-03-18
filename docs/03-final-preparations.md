@@ -99,4 +99,36 @@ EOF
 > While the preceding commands have set some variables, in order to make them visible within any sub-shells, we
 > export them.
 
+> [!IMPORTANT]
+> To make sure the lfs user's environment is clean, check for the presence of /etc/
+> bash.bashrc and, if present, move it out of the way. As the root user, run:
+> ```bash
+> [ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
+> ```
+> This is useless for the lfs system you can delete it after the completion of the project.
+
+## Modern System wirh multiple processors
+- To use all the logical cores in your device use:
+```bash
+make -j$(nproc)
+```
+- or check your total logical processors
+```bash
+nproc
+```
+- And pass the result value in make as so:
+```bash
+make -j<value>
+```
+- This also can be done:
+```bash
+cat >> ~/.bashrc << "EOF"
+export MAKEFLAGS=-j$(nproc)
+EOF
+```
+- Finally, to ensure the environment is fully prepared for building the temporary tools, force the bash shell to read the
+new user profile:
+```bash
+source ~/.bash_profile
+```
 
