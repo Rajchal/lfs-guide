@@ -1,7 +1,6 @@
 # lfs-guide
 ## Overview
 
-# Linux From Scratch Guide
 
 This repository provides a detailed guide to building your own Linux From Scratch (LFS) system. LFS is a project that helps you build a custom Linux system entirely from source code, giving you complete control over its configuration and components.
 
